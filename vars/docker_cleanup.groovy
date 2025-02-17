@@ -1,3 +1,3 @@
-def call(String projectName, String projectTag) {
+def call() {
   sh "docker image prune -f"
 }
