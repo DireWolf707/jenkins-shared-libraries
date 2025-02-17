@@ -1,3 +1,5 @@
 def call(String projectName, String projectTag) {
-  sh "docker build -t ${projectName}:${projectTag} ."
+  withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'dockerUsername', passwordVariable: '')]) {
+    sh "docker build -t ${dockerUsername}/${projectName}:${projectTag} ."
+  }
 }
