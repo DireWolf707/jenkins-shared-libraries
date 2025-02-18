@@ -1,3 +1,3 @@
 def call() {
-  sh "docker compose down"
+  sh "[ -f docker-compose.yml ] && docker compose down || echo 'No compose file found, skipping...'"
 }
