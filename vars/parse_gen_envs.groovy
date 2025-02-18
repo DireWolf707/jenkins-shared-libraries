@@ -1,5 +1,3 @@
-import groovy.json.JsonSlurper
-
 def call(String envsJson) {
     // Ensure the parameter is provided
     if (!envsJson) {
@@ -7,8 +5,7 @@ def call(String envsJson) {
     }
 
     // Parse the JSON string into an object
-    def jsonSlurper = new JsonSlurper()
-    def envsData = jsonSlurper.parseText(envsJson)
+    def containerData = readJSON text: containersJson
 
     // Ensure the parsed JSON contains a 'containers' array
     if (!envsData?.containers) {
