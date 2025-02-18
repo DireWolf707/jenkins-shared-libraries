@@ -19,7 +19,9 @@ def call(String envsJson) {
     def envDir = "tempEnvs"
 
     // Create the directory if it does not exist
-    sh "mkdir -p ${envDir}"
+    script {
+        sh "mkdir -p ${envDir}"
+    }
 
     // Loop over containers and generate .env files inside tempEnvs
     envsData.containers.each { container ->
