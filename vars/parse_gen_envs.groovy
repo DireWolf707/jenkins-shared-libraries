@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 def call(String envsJson) {
     // Ensure the parameter is provided
     if (!envsJson) {
