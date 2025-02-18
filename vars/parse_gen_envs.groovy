@@ -8,7 +8,7 @@ def call(String envsJson) {
 
     // Parse the JSON string into an object
     def jsonSlurper = new JsonSlurper()
-    def envsData = jsonSlurper.parseText(containersJson)
+    def envsData = jsonSlurper.parseText(envsJson)
 
     // Ensure the parsed JSON contains a 'containers' array
     if (!envsData?.containers) {
