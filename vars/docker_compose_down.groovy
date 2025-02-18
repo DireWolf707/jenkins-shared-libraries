@@ -1,3 +1,5 @@
 def call() {
-  sh "[ -f docker-compose.yml ] && docker compose down || echo 'No compose file found, skipping...'"
+  if (fileExists('docker-compose.yml')) {
+    sh "docker compose down"
+  }
 }
